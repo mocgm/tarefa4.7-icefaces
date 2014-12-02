@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:ice="http://www.icesoft.com/icefaces/component"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/templates/layout.xhtml">
+
+    <ui:define name="styles">
+        <link href="./css/inscricao.css" rel="stylesheet" type="text/css" />
+    </ui:define>
+
+    <ui:define name="metadata">
+    </ui:define>
+
+    <ui:define name="javascript">
+    </ui:define>
+
+    <ui:define name="content">
+        <ice:form>
+            <div class="titulo-form">FICHA DE INSCRIÇÃO</div>
+            <ice:panelGroup style="text-align: left; margin-bottom: 10px;" layout="block">
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <ice:outputLabel for="idioma" value="Idioma"/>
+                    <ice:selectOneMenu id="idioma" value="#{inscricaoBean.candidato.idioma.codigo}" style="width:12em">
+                        <f:selectItems value="#{inscricaoBean.idiomaItemList}"/>
+                    </ice:selectOneMenu>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <ice:outputLabel for="cpf" value="CPF" class="requerido"/>
+                    <ice:inputText id="cpf" value="#{inscricaoBean.candidato.cpf}" label="CPF" size="15" required="true" validator="cpfValidator"/>
+                    <ice:outputLabel for="rg" value="RG" class="requerido"/>
+                    <ice:inputText id="rg" value="#{inscricaoBean.candidato.rg}" size="25" label="RG" maxlength="20" required="true"/>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <ice:outputLabel for="nome" value="Nome" class="requerido"/>
+                    <ice:inputText id="nome" value="#{inscricaoBean.candidato.nome}" size="50"
+                                 label="Nome" maxlength="100" required="true" validator="nomeValidator"/>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <ice:outputLabel for="endereco" value="Endereço" class="requerido"/>
+                    <ice:inputText id="endereco" value="#{inscricaoBean.candidato.endereco}" size="50"
+                          styleClass="ui-inputfield" label="Endereço" maxlength="80" required="true"/>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <ice:outputLabel for="cidade" value="Cidade" class="requerido"/>
+                    <ice:inputText id="cidade" value="#{inscricaoBean.candidato.cidade}" size="50"
+                            styleClass="ui-inputfield" label="cidade" maxlength="50" required="true"/>
+                    <ice:outputLabel for="estado" value="Estado" class="requerido"/>
+                    <ice:inputText id="estado" value="#{inscricaoBean.candidato.estado}" size="4"
+                            styleClass="ui-inputfield" label="Estado" maxlength="2" required="true"/>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <ice:outputLabel for="cep" value="CEP" class="requerido"/>
+                    <ice:inputText id="cep" value="#{inscricaoBean.candidato.cep}" label="CEP" size="10" required="true"/>
+                    <ice:outputLabel for="bairro" value="Bairro"/>
+                    <ice:inputText id="bairro" value="#{inscricaoBean.candidato.bairro}" size="30" label="Bairro" maxlength="50"/>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <ice:outputLabel for="fone" value="Fone"/>
+                    <ice:inputText id="fone" value="#{inscricaoBean.candidato.fone}" label="Fone" size="15"/>
+                    <ice:outputLabel for="celular" value="Celular"/>
+                    <ice:inputText id="celular" value="#{inscricaoBean.candidato.celular}" label="Celular" size="15"/>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <ice:outputLabel for="email" value="E-mail" class="requerido"/>
+                    <ice:inputText id="email" value="#{inscricaoBean.candidato.email}" size="80"
+                          label="E-mail" maxlength="200" required="true"/>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <ice:outputLabel for="instituicao" value="Instituição" class="requerido"/>
+                    <ice:inputText id="instituicao" value="#{inscricaoBean.candidato.instituicao}" size="80"
+                          styleClass="ui-inputfield" label="Instituição" maxlength="100" required="true"/>
+                </ice:panelGroup>
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <ice:outputLabel for="programa" value="Programa" class="requerido"/>
+                    <ice:inputText id="programa" value="#{inscricaoBean.candidato.programa}" size="80"
+                          styleClass="ui-inputfield" label="Programa" maxlength="100" required="true"/>
+                </ice:panelGroup>
+            </ice:panelGroup>
+            <ice:commandButton value="Confirmar Inscrição" action="#{inscricaoBean.confirmaAction}"/>
+            <ice:messages/>
+        </ice:form>
+    </ui:define>
+
+</ui:composition>

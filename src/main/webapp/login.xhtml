@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:ice="http://www.icesoft.com/icefaces/component"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/templates/layout.xhtml">
+
+    <ui:define name="styles">
+        <link href="./css/inscricao.css" rel="stylesheet" type="text/css" />
+    </ui:define>
+
+    <ui:define name="metadata">
+    </ui:define>
+
+    <ui:define name="javascript">
+    </ui:define>
+
+    <ui:define name="content">
+        <ice:form>
+            <div class="titulo-form">LOGIN</div>
+            <ice:panelGroup style="text-align: left; margin-bottom: 10px;" layout="block">                
+                <ice:panelGroup styleClass="form-block" layout="block">
+                    <ice:outputLabel for="login" value="Login: "/>
+                    <ice:inputText id="login" value="#{loginBean.login}" label="login" size="15" required="true"/>                                        
+                </ice:panelGroup>                                                                                                     
+                <ice:panelGroup styleClass="form-block" layout="block" >
+                    <ice:outputLabel for="password" value="Password: "/>
+                    <ice:inputSecret id="password" value="#{loginBean.password}" size="15" label="password" required="true"/>
+                </ice:panelGroup>
+            </ice:panelGroup>
+            <ice:commandButton value="Entrar" action="#{loginBean.loginAction}"/>
+            <ice:messages/>
+        </ice:form>
+    </ui:define>
+
+</ui:composition>
