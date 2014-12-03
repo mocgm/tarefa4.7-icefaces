@@ -3,6 +3,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:ice="http://www.icesoft.com/icefaces/component"
+                xmlns:ace="http://www.icefaces.org/icefaces/components"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 template="/WEB-INF/templates/layout.xhtml">
@@ -20,12 +21,10 @@
     <ui:define name="content">
         <ice:form>
             <div class="titulo-form">CANDIDATOS INSCRITOS</div>
-            <ice:dataTable id="candidatos"             
-             summary="Candidatos inscritos"
-             value="#{appBean.list}"
-             border="1"
+            <ace:dataTable id="candidatos"                           
+             value="#{appBean.list}"             
              var="item">
-                <ice:column>
+                <ace:column>
                     <f:facet name="header">
                         <ice:outputText value="CPF" />
                     </f:facet>
@@ -33,8 +32,8 @@
                                  value="#{item.cpf}"
                                  title="CPF">            
                     </ice:outputText>
-                </ice:column>
-                <ice:column>
+                </ace:column>
+                <ace:column>
                     <f:facet name="header">
                         <ice:outputText value="Nome" />
                     </f:facet>
@@ -42,8 +41,8 @@
                                   value="#{item.nome}"
                                 title="Nome">            
                     </ice:outputText>
-                </ice:column>  
-                <ice:column>
+                </ace:column>  
+                <ace:column>
                     <f:facet name="header">
                         <ice:outputText value="Cidade" />
                     </f:facet>
@@ -51,8 +50,8 @@
                                   value="#{item.cidade}"
                                 title="Cidade">            
                     </ice:outputText>
-                </ice:column>
-                <ice:column>
+                </ace:column>
+                <ace:column>
                     <f:facet name="header">
                         <ice:outputText value="Estado" />
                     </f:facet>
@@ -60,9 +59,9 @@
                                   value="#{item.estado}"
                                 title="Estado">            
                     </ice:outputText>
-                </ice:column>                  
-            </ice:dataTable>
-            <h:commandButton value="Voltar" action="inscricao"/>            
+                </ace:column>                  
+            </ace:dataTable>
+            <ice:commandButton value="Voltar" action="inscricao"/>            
             <ice:messages/>
         </ice:form>
     </ui:define>

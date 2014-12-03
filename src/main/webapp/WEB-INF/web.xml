@@ -27,6 +27,22 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+    <!-- Many of the ICEfaces Components make use of the Resource Servlet -->
+    <servlet>
+        <servlet-name>Resource Servlet</servlet-name>
+        <servlet-class>com.icesoft.faces.webapp.CompatResourceServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- These specific mappings are necessary for the Resource Servlet to function properly -->
+    <servlet-mapping>
+        <servlet-name>Resource Servlet</servlet-name>
+        <url-pattern>/xmlhttp/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/icefaces/*</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>20</session-timeout>
     </session-config>

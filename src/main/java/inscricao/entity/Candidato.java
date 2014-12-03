@@ -23,7 +23,7 @@ public class Candidato implements Serializable {
     private String bairro;
     private String cidade;
     private String estado;
-    private Integer cep;
+    private String cep;
     private String fone;
     private String celular;
     @Pattern(regexp="^.*\\w@.*\\w$")
@@ -114,11 +114,11 @@ public class Candidato implements Serializable {
         this.estado = estado;
     }
 
-    public Integer getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(Integer cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
 
